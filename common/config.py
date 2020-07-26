@@ -1,0 +1,7 @@
+#DEFAULT
+NAME = 'SeleniumCrawler'
+
+#LOG SETTING
+LOG_DIR  = 'log'
+LOG_FILE_NAME = NAME + '.log'
+DF_BACKUP_CNT = 30
