@@ -31,24 +31,28 @@ logger.addHandler(streamHandler)
 logger.findCaller()
 
 def getCallInfo():
-	prev_frame = inspect.currentframe().f_back.f_back
-	func = prev_frame.f_code
-	lineno = prev_frame.f_lineno
-	info = '[' + str(func.co_filename) + ':' + str(lineno) + '] ' 
-	return info
+    prev_frame = inspect.currentframe().f_back.f_back
+    func = prev_frame.f_code
+    lineno = prev_frame.f_lineno
+    info = '[' + str(func.co_filename) + ':' + str(lineno) + '] ' 
+    return info
 
 def info(msg) :  
     callInfo = getCallInfo()
     logger.info(callInfo + str(msg))
 
 def debug(msg) :  
-    logger.debug(msg)
+    callInfo = getCallInfo()
+    logger.debug(callInfo + msg)
 
 def warning(msg) :  
-    logger.warning(msg)
+    callInfo = getCallInfo()
+    logger.warning(callInfo + msg)
 
 def error(msg) :  
-    logger.error(msg)
+    callInfo = getCallInfo()
+    logger.error(callInfo + msg)
 
-def critical(msg) :  
-    logger.critical(msg)
+def critical(msg) : 
+    callInfo = getCallInfo() 
+    logger.critical(callInfo + msg)
